@@ -103,10 +103,11 @@ switch (parseInt(choix_sorcier)) {
     case 6:
     i = 1;
     console.log("Voici la liste de nos potions...");
-    Inventaire.forEach((element) => {
-    console.log(i + ". " + element.nom + " Prix :" + element["prix"]);
-    i++;
-    });
+    for (const key in Inventaire) {
+        const element = Inventaire[key];
+        console.log(i + ". " + element.nom + " Prix :" + element.prix + " Stock :" + element.stock);
+        i++;
+    }
     break;
     case 7:
     console.log("A bientot, " + nom_sorcier);
