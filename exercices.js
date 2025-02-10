@@ -2,7 +2,8 @@ const monnaie = `🪙`; ;
 const nom_boutique = "Boutique de Boisson offrant des bienfaits";
 const nom_sorcier = prompt("Quelle est ton nom, sorcier ? 🧙‍♂️ ");
 let listePotions = ["Potion de soin", "Potion de force", "Potion d'endurance"];
-listePotions.push("Potions d'intelligence")
+listePotions.push("Potions d'intelligence");
+listePotions.pop();
 var nbPotionSoin = 10;
 var prixPotionSoin = 5;
 var ouvertureBoutique = true;
