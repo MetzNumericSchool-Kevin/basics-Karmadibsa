@@ -1,6 +1,8 @@
 const monnaie = `🪙`; ;
 const nom_boutique = "Boutique de Boisson offrant des bienfaits";
 const nom_sorcier = prompt("Quelle est ton nom, sorcier ? 🧙‍♂️ ");
+let listePotions = ["Potion de soin", "Potion de force", "Potion d'endurance"];
+
 var nbPotionSoin = 10;
 var prixPotionSoin = 5;
 var ouvertureBoutique = true;
@@ -22,78 +24,85 @@ if (ouvertureBoutique == true) {
         console.log("3. Le prix d'un potion de soin")
         console.log("4. La quantité d'une potion de soin")
         console.log("5. Commander des potions");
-        console.log("6. Quittez la boutique");
+        console.log("6. Afficher les potions");
+        console.log("7. Quittez la boutique");
         
         choix_sorcier = prompt("Que veut tu faire, sorcier ? 🧙‍♂️");
 
-    switch (parseInt(choix_sorcier)) {
-        case 1:
-        console.log(
-            'Le nom de ma boutique est "' + nom_boutique + '" Cool non ?'
-        );
-        break;
-        case 2:
-        console.log(
-            "Ton nom est " + nom_sorcier + " tu t'en rappelais vraiment pas ?"
-        );
-        break;
-        case 3:
-        console.log("Attends que je regarde.....");
-        console.log("Le prix est de " + prixPotionSoin + " " + monnaie);
-        break;
-        case 4:
-        console.log(
-            "Je vais aller voir ça part comme des petits pain c'est truc la....."
-        );
-        console.log("Il m'en reste " + nbPotionSoin + " t'en veut ?");
-        break;
-        case 5:
-        var nbVoulu = parseInt(prompt("Tu en veut combien ?"));
-        var prixCommande = nbVoulu * prixPotionSoin;
+switch (parseInt(choix_sorcier)) {
+    case 1:
+    console.log(
+        'Le nom de ma boutique est "' + nom_boutique + '" Cool non ?'
+    );
+    break;
+    case 2:
+    console.log(
+        "Ton nom est " + nom_sorcier + " tu t'en rappelais vraiment pas ?"
+    );
+    break;
+    case 3:
+    console.log("Attends que je regarde.....");
+    console.log("Le prix est de " + prixPotionSoin + " " + monnaie);
+    break;
+    case 4:
+    console.log(
+        "Je vais aller voir ça part comme des petits pain c'est truc la....."
+    );
+    console.log("Il m'en reste " + nbPotionSoin + " t'en veut ?");
+    break;
+    case 5:
+    var nbVoulu = parseInt(prompt("Tu en veut combien ?"));
+    var prixCommande = nbVoulu * prixPotionSoin;
 
-        if (argentAventurier >= prixCommande && nbVoulu <= nbPotionSoin) {
-            console.log(
-            "Prix de " +
-                nbVoulu +
-                " potions de soins : " +
-                prixCommande +
-                " " +
-                monnaie +
-                " mon cher Aventurier. 💸."
-            );
-            switch (prompt("Ca te va ? Y/n").toLowerCase()) {
-                case "y":
-                argentAventurier -= prixCommande;
-                nbPotionSoin -= nbVoulu;
-                console.log("Tiens tes " + nbVoulu + "potions.");
-                break;
-                case "n":
-                console.log("d'accord pas de probleme.");
-                break;
-            }
-        } else if (argentAventurier < prixCommande) {
-            console.log(
-            "désolé tu n'as pas assez d'argent il te manque " +
-                (prixCommande - argentAventurier)
-            );
-        } else if (nbVoulu > nbPotionSoin) {
-            console.log(
-            "désolé je n'ai pas assez de potions il m'en manque " +
-                (nbVoulu - nbPotionSoin)
-            );
+    if (argentAventurier >= prixCommande && nbVoulu <= nbPotionSoin) {
+        console.log(
+        "Prix de " +
+            nbVoulu +
+            " potions de soins : " +
+            prixCommande +
+            " " +
+            monnaie +
+            " mon cher Aventurier. 💸."
+        );
+        switch (prompt("Ca te va ? Y/n").toLowerCase()) {
+        case "y":
+            argentAventurier -= prixCommande;
+            nbPotionSoin -= nbVoulu;
+            console.log("Tiens tes " + nbVoulu + "potions.");
+            break;
+        case "n":
+            console.log("d'accord pas de probleme.");
+            break;
         }
-        break;
-        case 6:
-        console.log("A bientot, " + nom_sorcier);
-        break;
-
-        default:
+    } else if (argentAventurier < prixCommande) {
         console.log(
-            "Mh... Désolé aventurier, je ne comprends pas ce que tu souhaites. Refais ton choix ! 😕"
+        "désolé tu n'as pas assez d'argent il te manque " +
+            (prixCommande - argentAventurier)
         );
-        break;
-
+    } else if (nbVoulu > nbPotionSoin) {
+        console.log(
+        "désolé je n'ai pas assez de potions il m'en manque " +
+            (nbVoulu - nbPotionSoin)
+        );
     }
+    break;
+    case 6:
+        i = 1;
+        listePotions.forEach(element => {
+            console.log(i + ". " + element);
+            i++;
+        });
+    break;
+    case 7:
+    console.log("A bientot, " + nom_sorcier);
+    break;
+
+    default:
+    console.log(
+        "Mh... Désolé aventurier, je ne comprends pas ce que tu souhaites. Refais ton choix ! 😕"
+    );
+    break;
+}
 if (choix_sorcier != 6) {
     choix_sorcier = 0;
 } 
