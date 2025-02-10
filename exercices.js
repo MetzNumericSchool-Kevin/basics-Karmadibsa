@@ -1,9 +1,24 @@
 const monnaie = `🪙`; ;
 const nom_boutique = "Boutique de Boisson offrant des bienfaits";
 const nom_sorcier = prompt("Quelle est ton nom, sorcier ? 🧙‍♂️ ");
-let listePotions = ["Potion de soin", "Potion de force", "Potion d'endurance"];
-listePotions.push("Potions d'intelligence");
-listePotions.pop();
+
+let Potions_Soin = new Object();
+Potions_Soin.nom = "Potion de soin";
+Potions_Soin.prix = 5;
+Potions_Soin.stock = 10;
+
+let Potions_Force = new Object();
+Potions_Force.nom = "Potion de force";
+Potions_Force.prix = 5;
+Potions_Force.stock = 10;
+
+let Potions_Endurance = new Object();
+Potions_Endurance.nom = "Potion de endurance";
+Potions_Endurance.prix = 5;
+Potions_Endurance.stock = 10;
+
+let listePotions = [Potions_Soin, Potions_Force, Potions_Endurance];
+
 var nbPotionSoin = 10;
 var prixPotionSoin = 5;
 var ouvertureBoutique = true;
@@ -89,7 +104,7 @@ switch (parseInt(choix_sorcier)) {
     i = 1;
     console.log("Voici la liste de nos potions...");
     listePotions.forEach((element) => {
-    console.log(i + ". " + element);
+    console.log(i + ". " + element.nom);
     i++;
     });
     break;
