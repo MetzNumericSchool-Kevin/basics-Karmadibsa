@@ -17,7 +17,7 @@ Potions_Endurance.nom = "Potion de endurance";
 Potions_Endurance.prix = 5;
 Potions_Endurance.stock = 10;
 
-let listePotions = [Potions_Soin, Potions_Force, Potions_Endurance];
+let Inventaire = [Potions_Soin, Potions_Force, Potions_Endurance];
 
 var nbPotionSoin = 10;
 var prixPotionSoin = 5;
@@ -103,7 +103,7 @@ switch (parseInt(choix_sorcier)) {
     case 6:
     i = 1;
     console.log("Voici la liste de nos potions...");
-    listePotions.forEach((element) => {
+    Inventaire.forEach((element) => {
     console.log(i + ". " + element.nom + " Prix :" + element["prix"]);
     i++;
     });
