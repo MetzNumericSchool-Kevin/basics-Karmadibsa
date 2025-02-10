@@ -104,7 +104,7 @@ switch (parseInt(choix_sorcier)) {
     i = 1;
     console.log("Voici la liste de nos potions...");
     listePotions.forEach((element) => {
-    console.log(i + ". " + element.nom);
+    console.log(i + ". " + element.nom + " Prix :" + element["prix"]);
     i++;
     });
     break;
