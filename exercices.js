@@ -31,9 +31,7 @@ if (ouvertureBoutique == true) {
 
 switch (parseInt(choix_sorcier)) {
     case 1:
-    console.log(
-        'Le nom de ma boutique est "' + nom_boutique + '" Cool non ?'
-    );
+    console.log('Le nom de ma boutique est "' + nom_boutique + '" Cool non ?');
     break;
     case 2:
     console.log(
@@ -87,11 +85,14 @@ switch (parseInt(choix_sorcier)) {
     }
     break;
     case 6:
-        i = 1;
-        listePotions.forEach(element => {
-            console.log(i + ". " + element);
-            i++;
-        });
+    // console.log(listePotions[0]);
+    // console.log(listePotions[listePotions.length-1]);
+    i = 1;
+    console.log("Voici la liste de nos potions...");
+    listePotions.forEach((element) => {
+    console.log(i + ". " + element);
+    i++;
+    });
     break;
     case 7:
     console.log("A bientot, " + nom_sorcier);
@@ -102,12 +103,12 @@ switch (parseInt(choix_sorcier)) {
         "Mh... Désolé aventurier, je ne comprends pas ce que tu souhaites. Refais ton choix ! 😕"
     );
     break;
-}
-if (choix_sorcier != 6) {
+    }
+    if (choix_sorcier != 6) {
     choix_sorcier = 0;
-} 
-    
-}                     
+    } 
+
+    }                     
     } else if (ouvertureBoutique == false) {
         console.log("La boutique " + nom_boutique + " est fermée, revenez plus tard Aventurier ! 😴`"
         );
