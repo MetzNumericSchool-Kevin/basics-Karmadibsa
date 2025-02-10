@@ -4,6 +4,7 @@ const nom_sorcier = prompt("Quelle est ton nom, sorcier ? 🧙‍♂️ ");
 var nbPotionSoin = 10;
 var prixPotionSoin = 5;
 var ouvertureBoutique = true;
+var argentAventurier = 10;
 
 
 if (ouvertureBoutique == true) {
@@ -47,11 +48,40 @@ if (ouvertureBoutique == true) {
         console.log("Il m'en reste " + nbPotionSoin + " t'en veut ?");
         break;
         case 5:
-        var nbVoulu = prompt("Tu en veut combien ?");
+        var nbVoulu = parseInt(prompt("Tu en veut combien ?"));
         var prixCommande = nbVoulu * prixPotionSoin;
-        console.log(
-            "Prix de " +nbVoulu+" potions de soins : "+ prixCommande+" " + monnaie+" mon cher Aventurier. 💸`."
-        );
+
+        if (argentAventurier >= prixCommande && nbVoulu <= nbPotionSoin) {
+            console.log(
+            "Prix de " +
+                nbVoulu +
+                " potions de soins : " +
+                prixCommande +
+                " " +
+                monnaie +
+                " mon cher Aventurier. 💸."
+            );
+            switch (prompt("Ca te va ? Y/n").toLowerCase()) {
+                case "y":
+                argentAventurier -= prixCommande;
+                nbPotionSoin -= nbVoulu;
+                console.log("Tiens tes " + nbVoulu + "potions.");
+                break;
+                case "n":
+                console.log("d'accord pas de probleme.");
+                break;
+            }
+        } else if (argentAventurier < prixCommande) {
+            console.log(
+            "désolé tu n'as pas assez d'argent il te manque " +
+                (prixCommande - argentAventurier)
+            );
+        } else if (nbVoulu > nbPotionSoin) {
+            console.log(
+            "désolé je n'ai pas assez de potions il m'en manque " +
+                (nbVoulu - nbPotionSoin)
+            );
+        }
         break;
         case 6:
         console.log("A bientot, " + nom_sorcier);
@@ -62,7 +92,13 @@ if (ouvertureBoutique == true) {
             "Mh... Désolé aventurier, je ne comprends pas ce que tu souhaites. Refais ton choix ! 😕"
         );
         break;
-    }}                     
+
+    }
+if (choix_sorcier != 6) {
+    choix_sorcier = 0;
+} 
+    
+}                     
     } else if (ouvertureBoutique == false) {
         console.log("La boutique " + nom_boutique + " est fermée, revenez plus tard Aventurier ! 😴`"
         );
